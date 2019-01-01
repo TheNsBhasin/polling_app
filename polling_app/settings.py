@@ -26,7 +26,7 @@ SECRET_KEY = '4wyhy)jc#(p$i9m4n2$2@*qp9imx3u+=nuq)03(_88jp44z*vn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['heroku-polling-app.herokuapp.com']
+ALLOWED_HOSTS = ['heroku-polling-app.herokuapp.com', 'localhost', ]
 
 
 # Application definition
@@ -128,7 +128,7 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 prod_db = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(prod_db)
